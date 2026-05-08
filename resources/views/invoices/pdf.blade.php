@@ -77,8 +77,8 @@
         <tr>
             <td>{{ $item->description }}</td>
             <td class="text-right">{{ $item->quantity }}</td>
-            <td class="text-right">৳{{ number_format($item->unit_price, 2) }}</td>
-            <td class="text-right">৳{{ number_format($item->total, 2) }}</td>
+            <td class="text-right">BDT{{ number_format($item->unit_price, 2) }}</td>
+            <td class="text-right">BDT{{ number_format($item->total, 2) }}</td>
         </tr>
         @endforeach
     </tbody>
@@ -88,23 +88,23 @@
 <table class="totals-table">
     <tr>
         <td>Subtotal</td>
-        <td class="text-right">৳{{ number_format($invoice->subtotal, 2) }}</td>
+        <td class="text-right">BDT{{ number_format($invoice->subtotal, 2) }}</td>
     </tr>
     @if($invoice->discount_percent > 0)
     <tr style="color:#dc2626">
         <td>Discount ({{ $invoice->discount_percent }}%)</td>
-        <td class="text-right">-৳{{ number_format($invoice->subtotal * $invoice->discount_percent / 100, 2) }}</td>
+        <td class="text-right">-BDT{{ number_format($invoice->subtotal * $invoice->discount_percent / 100, 2) }}</td>
     </tr>
     @endif
     @if($invoice->tax_percent > 0)
     <tr>
         <td>Tax ({{ $invoice->tax_percent }}%)</td>
-        <td class="text-right">+৳{{ number_format($invoice->total - ($invoice->subtotal * (1 - $invoice->discount_percent/100)), 2) }}</td>
+        <td class="text-right">+BDT{{ number_format($invoice->total - ($invoice->subtotal * (1 - $invoice->discount_percent/100)), 2) }}</td>
     </tr>
     @endif
     <tr class="total-row">
         <td>Total</td>
-        <td class="text-right">৳{{ number_format($invoice->total, 2) }}</td>
+        <td class="text-right">BDT{{ number_format($invoice->total, 2) }}</td>
     </tr>
 </table>
 
